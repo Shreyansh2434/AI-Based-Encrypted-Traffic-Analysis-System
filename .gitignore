@@ -7,3 +7,5 @@ models/*.joblib
 models/*.pkl
 *.pkl
 *.joblib
+
+node_modules/

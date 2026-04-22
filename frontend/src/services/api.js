@@ -1,7 +1,13 @@
 // WebSocket Service for real-time data
+const getWSUrl = () => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || process.env.REACT_APP_BACKEND_URL || 'http://127.0.0.1:8000'
+  const wsUrl = backendUrl.replace(/^http/, 'ws')
+  return `${wsUrl}/ws`
+}
+
 export class WebSocketService {
-  constructor(url = 'ws://127.0.0.1:8000/ws') {
-    this.url = url
+  constructor(url) {
+    this.url = url || getWSUrl()
     this.ws = null
     this.listeners = new Map()
     this.reconnectAttempts = 0
@@ -84,11 +90,14 @@ export class WebSocketService {
 }
 
 // API Service
-const API = "http://127.0.0.1:8000"
+const getAPIUrl = () => {
+  return import.meta.env.VITE_BACKEND_URL || process.env.REACT_APP_BACKEND_URL || 'http://127.0.0.1:8000'
+}
 
 export class APIService {
   async request(endpoint, options = {}) {
     try {
+      const API = getAPIUrl()
       const response = await fetch(`${API}${endpoint}`, {
         headers: { 'Content-Type': 'application/json', ...options.headers },
         ...options,
@@ -125,6 +134,7 @@ export class APIService {
   }
 
   async analyzeDataset(file) {
+    const API = getAPIUrl()
     const form = new FormData()
     form.append("file", file)
     return fetch(`${API}/predict`, {

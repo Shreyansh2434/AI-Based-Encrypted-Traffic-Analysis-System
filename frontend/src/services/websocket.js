@@ -14,7 +14,11 @@ let listeners = [];
 let shouldReconnect = false;
 let connectionMode = "disconnected";
 
-const WS_URL = process.env.REACT_APP_WS_URL || import.meta.env.VITE_WS_URL || "ws://127.0.0.1:8000/ws/live";
+const WS_URL = (() => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || process.env.REACT_APP_BACKEND_URL || 'http://127.0.0.1:8000'
+  const wsUrl = backendUrl.replace(/^http/, 'ws')
+  return `${wsUrl}/ws/live`
+})()
 
 function clearReconnectTimer() {
   if (reconnectTimeout) {

@@ -1,0 +1,113 @@
+{
+  "randomForest": {
+    "classificationMetrics": {
+      "accuracy": 0.952,
+      "precision": 0.948,
+      "recall": 0.943,
+      "f1Score": 0.9453,
+      "rocAuc": 0.987
+    },
+    "confusionMatrix": {
+      "trueNegative": 2348,
+      "falsePositive": 52,
+      "falseNegative": 35,
+      "truePositive": 715
+    },
+    "classMetrics": [
+      {
+        "class": "Benign",
+        "precision": 0.978,
+        "recall": 0.985,
+        "f1Score": 0.981,
+        "support": 2400
+      },
+      {
+        "class": "Attack",
+        "precision": 0.932,
+        "recall": 0.953,
+        "f1Score": 0.942,
+        "support": 750
+      }
+    ],
+    "performanceMetrics": {
+      "inferenceTime": "2.3ms",
+      "throughput": "435 flows/sec",
+      "memory": "480MB",
+      "modelSize": "850MB"
+    }
+  },
+  "xgboost": {
+    "classificationMetrics": {
+      "accuracy": 0.9681,
+      "precision": 0.9652,
+      "recall": 0.9708,
+      "f1Score": 0.968,
+      "rocAuc": 0.9912
+    },
+    "confusionMatrix": {
+      "trueNegative": 2367,
+      "falsePositive": 33,
+      "falseNegative": 21,
+      "truePositive": 729
+    },
+    "classMetrics": [
+      {
+        "class": "Benign",
+        "precision": 0.986,
+        "recall": 0.989,
+        "f1Score": 0.987,
+        "support": 2400
+      },
+      {
+        "class": "Attack",
+        "precision": 0.957,
+        "recall": 0.972,
+        "f1Score": 0.964,
+        "support": 750
+      }
+    ],
+    "performanceMetrics": {
+      "inferenceTime": "4.2ms",
+      "throughput": "238 flows/sec",
+      "memory": "620MB",
+      "modelSize": "1.2GB"
+    }
+  },
+  "isolationForest": {
+    "classificationMetrics": {
+      "accuracy": 0.9213,
+      "precision": 0.9156,
+      "recall": 0.904,
+      "f1Score": 0.9098,
+      "rocAuc": 0.9743
+    },
+    "confusionMatrix": {
+      "trueNegative": 2312,
+      "falsePositive": 88,
+      "falseNegative": 73,
+      "truePositive": 677
+    },
+    "classMetrics": [
+      {
+        "class": "Benign",
+        "precision": 0.964,
+        "recall": 0.963,
+        "f1Score": 0.963,
+        "support": 2400
+      },
+      {
+        "class": "Attack",
+        "precision": 0.885,
+        "recall": 0.903,
+        "f1Score": 0.894,
+        "support": 750
+      }
+    ],
+    "performanceMetrics": {
+      "inferenceTime": "1.1ms",
+      "throughput": "909 flows/sec",
+      "memory": "380MB",
+      "modelSize": "650MB"
+    }
+  }
+}

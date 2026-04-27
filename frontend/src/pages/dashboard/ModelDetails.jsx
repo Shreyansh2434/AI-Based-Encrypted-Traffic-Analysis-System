@@ -2,6 +2,7 @@
  * Model Details page component
  */
 import AlgorithmComparisonPanel from "../../components/dashboard/AlgorithmComparisonPanel";
+import ModelAnalysisPanel from "../../components/dashboard/ModelAnalysisPanel";
 
 export default function ModelDetails() {
   const features = [
@@ -122,7 +123,7 @@ export default function ModelDetails() {
 
       <hr />
 
-      <AlgorithmComparisonPanel />
+      <ModelAnalysisPanel selectedModel="randomForest" />
 
       <hr />
 

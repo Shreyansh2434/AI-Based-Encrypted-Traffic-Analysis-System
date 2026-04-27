@@ -122,135 +122,135 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
               <span className="legend-info-value">0-100 (Higher is Better)</span>
             </div>
           </div>
-        </div>
 
-        <svg
-          width="100%"
-          height={svgSize}
-          viewBox={`0 0 ${svgSize} ${svgSize}`}
-          className="chart-svg professional"
-          preserveAspectRatio="xMidYMid meet"
-        >
-        {/* Grid circles */}
-        {[25, 50, 75, 100].map((val) => (
-          <circle
-            key={`grid-${val}`}
-            cx={centerX}
-            cy={centerY}
-            r={(radius * val) / maxValue}
-            fill="none"
-            stroke="#334155"
-            strokeDasharray="2,2"
-            opacity="0.1"
-          />
-        ))}
-
-        {/* Grid lines and labels */}
-        {metricKeys.map((key, idx) => {
-          const axisPoint = getAxisPoint(idx);
-          const labelPoint = getLabelPoint(idx);
-          return (
-            <g key={`axis-${idx}`}>
-              <line
-                x1={centerX}
-                y1={centerY}
-                x2={axisPoint.x}
-                y2={axisPoint.y}
+          <svg
+            width="100%"
+            height={svgSize}
+            viewBox={`0 0 ${svgSize} ${svgSize}`}
+            className="chart-svg professional"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            {/* Grid circles */}
+            {[25, 50, 75, 100].map((val) => (
+              <circle
+                key={`grid-${val}`}
+                cx={centerX}
+                cy={centerY}
+                r={(radius * val) / maxValue}
+                fill="none"
                 stroke="#334155"
-                strokeWidth="1"
-                opacity="0.2"
+                strokeDasharray="2,2"
+                opacity="0.1"
               />
-              <text
-                x={labelPoint.x}
-                y={labelPoint.y}
-                textAnchor="middle"
-                fontSize="11"
-                fill="#94a3b8"
-                fontWeight="600"
-              >
-                {metricLabels[key]}
-              </text>
-            </g>
-          );
-        })}
+            ))}
 
-        {/* Algorithm polygons */}
-        {algorithms.map((algo, algoIdx) => (
-          <g key={`algo-${algoIdx}`}>
-            <polygon
-              points={getPathData(algo.metrics)}
-              fill={algo.color}
-              fillOpacity="0.15"
-              stroke={algo.color}
-              strokeWidth="2"
-              opacity="0.8"
-            />
-            {/* Data points */}
+            {/* Grid lines and labels */}
             {metricKeys.map((key, idx) => {
-              const point = getPoint(idx, algo.metrics[key]);
+              const axisPoint = getAxisPoint(idx);
+              const labelPoint = getLabelPoint(idx);
               return (
-                <circle
-                  key={`point-${algoIdx}-${idx}`}
-                  cx={point.x}
-                  cy={point.y}
-                  r="3"
-                  fill={algo.color}
-                  opacity="0.9"
-                />
+                <g key={`axis-${idx}`}>
+                  <line
+                    x1={centerX}
+                    y1={centerY}
+                    x2={axisPoint.x}
+                    y2={axisPoint.y}
+                    stroke="#334155"
+                    strokeWidth="1"
+                    opacity="0.2"
+                  />
+                  <text
+                    x={labelPoint.x}
+                    y={labelPoint.y}
+                    textAnchor="middle"
+                    fontSize="11"
+                    fill="#94a3b8"
+                    fontWeight="600"
+                  >
+                    {metricLabels[key]}
+                  </text>
+                </g>
               );
             })}
-          </g>
-        ))}
-      </svg>
 
-      {/* Legend */}
-      <div className="comparison-legend">
-        {algorithms.map((algo, idx) => (
-          <div key={idx} className="legend-item">
-            <span
-              className="legend-color"
-              style={{ backgroundColor: algo.color }}
-            ></span>
-            <span className="legend-label">{algo.name}</span>
-          </div>
-        ))}
-      </div>
-
-      {/* Metrics Table */}
-      <div className="comparison-table-section">
-        <table className="comparison-table">
-          <thead>
-            <tr>
-              <th>Metric</th>
-              {algorithms.map((algo, idx) => (
-                <th key={idx} style={{ color: algo.color }}>
-                  {algo.name}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {metricKeys.map((key) => (
-              <tr key={key}>
-                <td className="metric-name">{metricLabels[key]}</td>
-                {algorithms.map((algo, idx) => {
-                  const value = algo.metrics[key];
-                  const isHighest =
-                    value ===
-                    Math.max(...algorithms.map((a) => a.metrics[key]));
+            {/* Algorithm polygons */}
+            {algorithms.map((algo, algoIdx) => (
+              <g key={`algo-${algoIdx}`}>
+                <polygon
+                  points={getPathData(algo.metrics)}
+                  fill={algo.color}
+                  fillOpacity="0.15"
+                  stroke={algo.color}
+                  strokeWidth="2"
+                  opacity="0.8"
+                />
+                {/* Data points */}
+                {metricKeys.map((key, idx) => {
+                  const point = getPoint(idx, algo.metrics[key]);
                   return (
-                    <td key={idx} className={isHighest ? "highlight-best" : ""}>
-                      {key === "f1Score"
-                        ? value.toFixed(3)
-                        : `${value}${key === "accuracy" ? "%" : ""}`}
-                    </td>
+                    <circle
+                      key={`point-${algoIdx}-${idx}`}
+                      cx={point.x}
+                      cy={point.y}
+                      r="3"
+                      fill={algo.color}
+                      opacity="0.9"
+                    />
                   );
                 })}
-              </tr>
+              </g>
             ))}
-          </tbody>
-        </table>
-      </div>
+          </svg>
+
+          {/* Legend */}
+          <div className="comparison-legend">
+            {algorithms.map((algo, idx) => (
+              <div key={idx} className="legend-item">
+                <span
+                  className="legend-color"
+                  style={{ backgroundColor: algo.color }}
+                ></span>
+                <span className="legend-label">{algo.name}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Metrics Table */}
+          <div className="comparison-table-section">
+            <table className="comparison-table">
+              <thead>
+                <tr>
+                  <th>Metric</th>
+                  {algorithms.map((algo, idx) => (
+                    <th key={idx} style={{ color: algo.color }}>
+                      {algo.name}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {metricKeys.map((key) => (
+                  <tr key={key}>
+                    <td className="metric-name">{metricLabels[key]}</td>
+                    {algorithms.map((algo, idx) => {
+                      const value = algo.metrics[key];
+                      const isHighest =
+                        value ===
+                        Math.max(...algorithms.map((a) => a.metrics[key]));
+                      return (
+                        <td key={idx} className={isHighest ? "highlight-best" : ""}>
+                          {key === "f1Score"
+                            ? value.toFixed(3)
+                            : `${value}${key === "accuracy" ? "%" : ""}`}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
       )}
     </div>
   );

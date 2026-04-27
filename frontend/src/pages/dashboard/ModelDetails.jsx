@@ -124,6 +124,10 @@ export default function ModelDetails() {
 
       <hr />
 
+      <AlgorithmComparisonPanel />
+
+      <hr />
+
       <ModelComparisonChart />
 
       <hr />

@@ -1,6 +1,7 @@
 /**
  * Model Details page component
  */
+import AlgorithmComparisonPanel from "../../components/dashboard/AlgorithmComparisonPanel";
 
 export default function ModelDetails() {
   const features = [
@@ -118,6 +119,10 @@ export default function ModelDetails() {
           </table>
         </div>
       </div>
+
+      <hr />
+
+      <AlgorithmComparisonPanel />
 
       <hr />
 

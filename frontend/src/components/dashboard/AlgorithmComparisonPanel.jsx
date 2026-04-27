@@ -122,12 +122,15 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
               <span className="legend-info-value">0-100 (Higher is Better)</span>
             </div>
           </div>
-        width="100%"
-        height={svgSize}
-        viewBox={`0 0 ${svgSize} ${svgSize}`}
-        className="chart-svg professional"
-        preserveAspectRatio="xMidYMid meet"
-      >
+        </div>
+
+        <svg
+          width="100%"
+          height={svgSize}
+          viewBox={`0 0 ${svgSize} ${svgSize}`}
+          className="chart-svg professional"
+          preserveAspectRatio="xMidYMid meet"
+        >
         {/* Grid circles */}
         {[25, 50, 75, 100].map((val) => (
           <circle

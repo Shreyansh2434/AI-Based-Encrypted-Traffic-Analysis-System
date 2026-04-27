@@ -3,6 +3,7 @@
  */
 import AlgorithmComparisonPanel from "../../components/dashboard/AlgorithmComparisonPanel";
 import ModelAnalysisPanel from "../../components/dashboard/ModelAnalysisPanel";
+import ModelComparisonChart from "../../components/dashboard/ModelComparisonChart";
 
 export default function ModelDetails() {
   const features = [
@@ -120,6 +121,10 @@ export default function ModelDetails() {
           </table>
         </div>
       </div>
+
+      <hr />
+
+      <ModelComparisonChart />
 
       <hr />
 

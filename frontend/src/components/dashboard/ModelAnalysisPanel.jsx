@@ -55,6 +55,28 @@ export default function ModelAnalysisPanel({
       </div>
 
       {/* Classification Metrics */}
+      <div className="chart-legend-info">
+        <div className="legend-info-item">
+          <span className="legend-info-label">Model:</span>
+          <span className="legend-info-value">
+            {selectedModel === "randomForest" && "Random Forest"}
+            {selectedModel === "xgboost" && "XGBoost"}
+            {selectedModel === "isolationForest" && "Isolation Forest"}
+          </span>
+        </div>
+        <div className="legend-info-item">
+          <span className="legend-info-label">Training Data:</span>
+          <span className="legend-info-value">CICIDS2017 | 2.5M flows | 150K attack samples</span>
+        </div>
+        <div className="legend-info-item">
+          <span className="legend-info-label">Classes:</span>
+          <span className="legend-info-value">Benign Traffic | Attack Traffic</span>
+        </div>
+      </div>
+
+      <div className="divider-line"></div>
+
+      {/* Classification Metrics */}
       <div className="metrics-grid">
         <div className="metric-box">
           <div className="metric-label">Accuracy</div>

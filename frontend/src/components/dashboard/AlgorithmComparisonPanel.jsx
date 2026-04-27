@@ -107,6 +107,21 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
 
       {isLoading && <LoadingState message="Loading algorithm metrics..." />}
       {!isLoading && (
+        <>
+          <div className="chart-legend-info">
+            <div className="legend-info-item">
+              <span className="legend-info-label">Chart Type:</span>
+              <span className="legend-info-value">Radar Chart (Performance Metrics)</span>
+            </div>
+            <div className="legend-info-item">
+              <span className="legend-info-label">Metrics Compared:</span>
+              <span className="legend-info-value">Accuracy, F1-Score, Speed, Interpretability, Scalability, Memory</span>
+            </div>
+            <div className="legend-info-item">
+              <span className="legend-info-label">Scale:</span>
+              <span className="legend-info-value">0-100 (Higher is Better)</span>
+            </div>
+          </div>
         width="100%"
         height={svgSize}
         viewBox={`0 0 ${svgSize} ${svgSize}`}

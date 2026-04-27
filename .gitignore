@@ -1,0 +1,11 @@
+﻿venv/
+__pycache__/
+*.pyc
+data/*.csv
+data/*.pcap
+models/*.joblib
+models/*.pkl
+*.pkl
+*.joblib
+
+node_modules/

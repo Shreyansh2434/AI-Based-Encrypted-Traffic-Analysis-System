@@ -2,8 +2,9 @@
  * Algorithm Comparison Panel - RF vs XGB vs IsoForest
  * Displays performance metrics comparison across three algorithms
  */
+import { DemoBadge, LoadingState, EmptyState } from "./StateIndicators";
 
-export default function AlgorithmComparisonPanel() {
+export default function AlgorithmComparisonPanel({ isLoading = false }) {
   const algorithms = [
     {
       name: "Random Forest",
@@ -95,13 +96,17 @@ export default function AlgorithmComparisonPanel() {
   return (
     <div className="chart-wrapper full-width">
       <div className="chart-header">
-        <h3>🤖 Algorithm Comparison</h3>
-        <span className="chart-subtitle">
-          RF vs XGB vs IsoForest Performance
-        </span>
+        <div>
+          <h3>🤖 Algorithm Comparison</h3>
+          <span className="chart-subtitle">
+            RF vs XGB vs IsoForest Performance
+          </span>
+        </div>
+        <DemoBadge />
       </div>
 
-      <svg
+      {isLoading && <LoadingState message="Loading algorithm metrics..." />}
+      {!isLoading && (
         width="100%"
         height={svgSize}
         viewBox={`0 0 ${svgSize} ${svgSize}`}
@@ -228,6 +233,7 @@ export default function AlgorithmComparisonPanel() {
           </tbody>
         </table>
       </div>
+      )}
     </div>
   );
 }

@@ -2,16 +2,20 @@
  * Model Analysis / Performance Section - Displays comprehensive model metrics
  */
 import metricsData from "../../data/metrics.json";
+import { DemoBadge, LoadingState, EmptyState } from "./StateIndicators";
 
-export default function ModelAnalysisPanel({ selectedModel = "randomForest" }) {
+export default function ModelAnalysisPanel({
+  selectedModel = "randomForest",
+  isLoading = false,
+}) {
   const metrics = metricsData[selectedModel];
 
   if (!metrics) {
-    return (
-      <div className="chart-placeholder">
-        No metrics available for this model
-      </div>
-    );
+    return <EmptyState message="No metrics available for this model" icon="📊" />;
+  }
+
+  if (isLoading) {
+    return <LoadingState message="Loading model analysis..." />;
   }
 
   const {
@@ -43,8 +47,11 @@ export default function ModelAnalysisPanel({ selectedModel = "randomForest" }) {
   return (
     <div className="chart-wrapper full-width">
       <div className="chart-header">
-        <h3>📊 Model Analysis & Performance</h3>
-        <span className="chart-subtitle">Comprehensive evaluation metrics</span>
+        <div>
+          <h3>📊 Model Analysis & Performance</h3>
+          <span className="chart-subtitle">Comprehensive evaluation metrics</span>
+        </div>
+        <DemoBadge />
       </div>
 
       {/* Classification Metrics */}

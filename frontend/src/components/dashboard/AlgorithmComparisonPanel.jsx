@@ -131,8 +131,8 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
 
           <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
             <svg
-              width="150"
-              height="150"
+              width="100"
+              height="100"
               viewBox={`0 0 ${svgSize} ${svgSize}`}
               className="chart-svg professional"
               preserveAspectRatio="xMidYMid meet"

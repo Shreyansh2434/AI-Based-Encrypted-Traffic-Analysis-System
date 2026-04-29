@@ -541,7 +541,7 @@ input[type="range"] {
 
 .chart-svg {
   display: block;
-  width: 100%;
+  width: auto;
   height: auto;
 }
 

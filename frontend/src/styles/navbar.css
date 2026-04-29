@@ -72,62 +72,34 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.15),
-    rgba(139, 92, 246, 0.1)
-  );
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  background: transparent;
+  border: none;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   flex-shrink: 0;
+  padding: 0;
 }
 
 .navbar-toggle-btn:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.25),
-    rgba(139, 92, 246, 0.2)
-  );
-  border-color: rgba(59, 130, 246, 0.5);
   transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
 }
 
 .navbar-toggle-btn:active {
   transform: scale(0.95);
 }
 
-/* Hamburger icon animation */
-.toggle-icon {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  width: 24px;
-  height: 24px;
-}
-
-.toggle-icon span {
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  border-radius: 999px;
+/* Hamburger icon image */
+.hamburger-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transform-origin: center;
+  filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.2));
 }
 
-.toggle-icon.active span:nth-child(1) {
-  transform: rotate(45deg) translateY(11px);
-}
-
-.toggle-icon.active span:nth-child(2) {
-  opacity: 0;
-  transform: translateX(-10px);
-}
-
-.toggle-icon.active span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-11px);
+.navbar-toggle-btn:hover .hamburger-icon {
+  filter: drop-shadow(0 8px 24px rgba(59, 130, 246, 0.35));
 }
 
 /* Logo section */
@@ -301,10 +273,6 @@
   .navbar-toggle-btn {
     width: 36px;
     height: 36px;
-  }
-
-  .toggle-icon span {
-    height: 2px;
   }
 }
 

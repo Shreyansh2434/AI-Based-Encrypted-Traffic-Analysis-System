@@ -3,6 +3,8 @@
  * World-class animations and luxury design
  */
 
+import hamburgerIcon from "../../assets/hamburger-menu.svg";
+
 export default function Navbar({ onSidebarToggle, sidebarVisible }) {
   return (
     <nav className="navbar-luxury">
@@ -13,18 +15,18 @@ export default function Navbar({ onSidebarToggle, sidebarVisible }) {
       <div className="navbar-content">
         {/* Branding Section */}
         <div className="navbar-brand">
-          {/* Toggle button with luxury animation */}
+          {/* Toggle button with hamburger icon */}
           <button
             className="navbar-toggle-btn"
             onClick={onSidebarToggle}
             title={sidebarVisible ? "Hide Navigation" : "Show Navigation"}
             aria-label="Toggle sidebar"
           >
-            <span className={`toggle-icon ${sidebarVisible ? "active" : ""}`}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
+            <img
+              src={hamburgerIcon}
+              alt="Menu"
+              className="hamburger-icon"
+            />
           </button>
 
           {/* Logo and title */}
@@ -38,9 +40,7 @@ export default function Navbar({ onSidebarToggle, sidebarVisible }) {
 
         {/* Center tagline */}
         <div className="navbar-tagline">
-          <span className="tagline-text">
-            Encrypted Network Threat Detection
-          </span>
+          <span className="tagline-text">Encrypted Network Threat Detection</span>
           <span className="tagline-separator">•</span>
           <span className="tagline-text">Real-Time Analysis</span>
         </div>

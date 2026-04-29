@@ -57,10 +57,10 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
   const maxValue = 100;
 
   // Radar chart dimensions - scaled appropriately
-  const svgSize = 280;
+  const svgSize = 420;
   const centerX = svgSize / 2;
   const centerY = svgSize / 2;
-  const radius = 80;
+  const radius = 140;
   const angleSlice = (Math.PI * 2) / metricKeys.length;
 
   const getPoint = (index, value) => {
@@ -130,7 +130,7 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
 
           <svg
             width="100%"
-            height="280"
+            height="420"
             viewBox={`0 0 ${svgSize} ${svgSize}`}
             className="chart-svg professional"
             preserveAspectRatio="xMidYMid meet"

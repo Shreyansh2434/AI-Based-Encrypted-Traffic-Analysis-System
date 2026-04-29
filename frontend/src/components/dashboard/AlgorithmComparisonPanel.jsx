@@ -56,11 +56,11 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
   const metricKeys = Object.keys(metricLabels);
   const maxValue = 100;
 
-  // Radar chart dimensions
-  const svgSize = 320;
+  // Radar chart dimensions - scaled appropriately
+  const svgSize = 280;
   const centerX = svgSize / 2;
   const centerY = svgSize / 2;
-  const radius = 100;
+  const radius = 80;
   const angleSlice = (Math.PI * 2) / metricKeys.length;
 
   const getPoint = (index, value) => {
@@ -111,11 +111,16 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
           <div className="chart-legend-info">
             <div className="legend-info-item">
               <span className="legend-info-label">Chart Type:</span>
-              <span className="legend-info-value">Radar Chart (Performance Metrics)</span>
+              <span className="legend-info-value">
+                Radar Chart (Performance Metrics)
+              </span>
             </div>
             <div className="legend-info-item">
               <span className="legend-info-label">Metrics Compared:</span>
-              <span className="legend-info-value">Accuracy, F1-Score, Speed, Interpretability, Scalability, Memory</span>
+              <span className="legend-info-value">
+                Accuracy, F1-Score, Speed, Interpretability, Scalability,
+                Memory
+              </span>
             </div>
             <div className="legend-info-item">
               <span className="legend-info-label">Scale:</span>
@@ -125,7 +130,7 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
 
           <svg
             width="100%"
-            height={svgSize}
+            height="280"
             viewBox={`0 0 ${svgSize} ${svgSize}`}
             className="chart-svg professional"
             preserveAspectRatio="xMidYMid meet"
@@ -238,7 +243,10 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
                         value ===
                         Math.max(...algorithms.map((a) => a.metrics[key]));
                       return (
-                        <td key={idx} className={isHighest ? "highlight-best" : ""}>
+                        <td
+                          key={idx}
+                          className={isHighest ? "highlight-best" : ""}
+                        >
                           {key === "f1Score"
                             ? value.toFixed(3)
                             : `${value}${key === "accuracy" ? "%" : ""}`}

@@ -4,10 +4,22 @@
 
 export default function ThreatDistributionChart({ distribution }) {
   if (!distribution || Object.keys(distribution).length === 0) {
-    return <div className="chart-placeholder">Threat distribution will appear when events arrive</div>;
+    return (
+      <div className="chart-placeholder">
+        Threat distribution will appear when events arrive
+      </div>
+    );
   }
 
-  const colors = ["#3b82f6", "#f97316", "#ef4444", "#8b5cf6", "#22c55e", "#10b981", "#ec4899"];
+  const colors = [
+    "#3b82f6",
+    "#f97316",
+    "#ef4444",
+    "#8b5cf6",
+    "#22c55e",
+    "#10b981",
+    "#ec4899",
+  ];
   const entries = Object.entries(distribution);
   const total = entries.reduce((sum, [_, count]) => sum + count, 0);
 
@@ -67,13 +79,15 @@ export default function ThreatDistributionChart({ distribution }) {
       <div className="chart-header">
         <div>
           <h3>🎯 Threat Distribution</h3>
-          <span className="chart-subtitle">Classification of detected threat types</span>
+          <span className="chart-subtitle">
+            Classification of detected threat types
+          </span>
         </div>
       </div>
 
       <svg
         width="100%"
-        height="300"
+        height="220"
         viewBox="0 0 350 300"
         className="chart-svg"
         preserveAspectRatio="xMidYMid meet"
@@ -81,7 +95,13 @@ export default function ThreatDistributionChart({ distribution }) {
         {/* Donut slices */}
         {slices.map((slice) => (
           <g key={`slice-${slice.idx}`}>
-            <path d={slice.pathData} fill={slice.color} opacity="0.85" stroke="rgba(15, 23, 42, 0.8)" strokeWidth="1" />
+            <path
+              d={slice.pathData}
+              fill={slice.color}
+              opacity="0.85"
+              stroke="rgba(15, 23, 42, 0.8)"
+              strokeWidth="1"
+            />
           </g>
         ))}
 
@@ -100,9 +120,24 @@ export default function ThreatDistributionChart({ distribution }) {
       </svg>
 
       {/* Legend with percentages */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginTop: "16px" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "12px",
+          marginTop: "16px",
+        }}
+      >
         {slices.map((slice) => (
-          <div key={`legend-${slice.idx}`} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px" }}>
+          <div
+            key={`legend-${slice.idx}`}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              fontSize: "12px",
+            }}
+          >
             <div
               style={{
                 width: "12px",
@@ -113,7 +148,9 @@ export default function ThreatDistributionChart({ distribution }) {
               }}
             ></div>
             <span style={{ color: "#cbd5e1" }}>
-              {slice.label}: <strong style={{ color: "#60a5fa" }}>{slice.count}</strong> ({slice.percentage.toFixed(1)}%)
+              {slice.label}:{" "}
+              <strong style={{ color: "#60a5fa" }}>{slice.count}</strong> (
+              {slice.percentage.toFixed(1)}%)
             </span>
           </div>
         ))}

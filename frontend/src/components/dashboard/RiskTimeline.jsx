@@ -33,7 +33,7 @@ export default function RiskTimeline({ risks }) {
 
       <svg
         width="100%"
-        height="300"
+        height="220"
         viewBox={`0 0 ${svgWidth} ${svgHeight}`}
         className="chart-svg"
         preserveAspectRatio="xMidYMid meet"

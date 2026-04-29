@@ -181,6 +181,16 @@ body, html {
   cursor: pointer;
   accent-color: #3b82f6;
   transition: transform 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  pointer-events: none;
+  opacity: 0;
 }
 
 .radio-label:hover {

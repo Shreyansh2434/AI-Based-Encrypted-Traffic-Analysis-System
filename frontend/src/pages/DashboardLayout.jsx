@@ -4,6 +4,7 @@ import Navbar from "../components/layout/Navbar";
 import Sidebar from "../components/layout/Sidebar";
 import "../styles/dashboard.css";
 import "../styles/global.css";
+import "../styles/problem-statement.css";
 import LiveMonitoring from "./dashboard/LiveMonitoring";
 import ModelDetails from "./dashboard/ModelDetails";
 import PerformanceTesting from "./dashboard/PerformanceTesting";
@@ -57,7 +58,9 @@ export default function DashboardLayout() {
   };
 
   return (
-    <div className={`dashboard-layout ${!sidebarVisible ? "sidebar-hidden" : ""}`}>
+    <div
+      className={`dashboard-layout ${!sidebarVisible ? "sidebar-hidden" : ""}`}
+    >
       <Navbar onSidebarToggle={toggleSidebar} sidebarVisible={sidebarVisible} />
       <div className="dashboard-container">
         {sidebarVisible && (

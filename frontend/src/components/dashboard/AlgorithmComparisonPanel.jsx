@@ -2,7 +2,7 @@
  * Algorithm Comparison Panel - RF vs XGB vs IsoForest
  * Displays performance metrics comparison across three algorithms
  */
-import { DemoBadge, LoadingState, EmptyState } from "./StateIndicators";
+import { DemoBadge, LoadingState } from "./StateIndicators";
 
 export default function AlgorithmComparisonPanel({ isLoading = false }) {
   const algorithms = [
@@ -56,11 +56,11 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
   const metricKeys = Object.keys(metricLabels);
   const maxValue = 100;
 
-  // Radar chart dimensions - scaled appropriately
-  const svgSize = 420;
+  // Radar chart dimensions - petite sized
+  const svgSize = 300;
   const centerX = svgSize / 2;
   const centerY = svgSize / 2;
-  const radius = 140;
+  const radius = 85;
   const angleSlice = (Math.PI * 2) / metricKeys.length;
 
   const getPoint = (index, value) => {
@@ -87,7 +87,7 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
 
   const getLabelPoint = (index) => {
     const angle = angleSlice * index - Math.PI / 2;
-    const distance = radius + 25;
+    const distance = radius + 15;
     const x = centerX + distance * Math.cos(angle);
     const y = centerY + distance * Math.sin(angle);
     return { x, y };
@@ -118,19 +118,20 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
             <div className="legend-info-item">
               <span className="legend-info-label">Metrics Compared:</span>
               <span className="legend-info-value">
-                Accuracy, F1-Score, Speed, Interpretability, Scalability,
-                Memory
+                Accuracy, F1-Score, Speed, Interpretability, Scalability, Memory
               </span>
             </div>
             <div className="legend-info-item">
               <span className="legend-info-label">Scale:</span>
-              <span className="legend-info-value">0-100 (Higher is Better)</span>
+              <span className="legend-info-value">
+                0-100 (Higher is Better)
+              </span>
             </div>
           </div>
 
           <svg
             width="100%"
-            height="420"
+            height="300"
             viewBox={`0 0 ${svgSize} ${svgSize}`}
             className="chart-svg professional"
             preserveAspectRatio="xMidYMid meet"
@@ -168,7 +169,7 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
                     x={labelPoint.x}
                     y={labelPoint.y}
                     textAnchor="middle"
-                    fontSize="11"
+                    fontSize="9"
                     fill="#94a3b8"
                     fontWeight="600"
                   >

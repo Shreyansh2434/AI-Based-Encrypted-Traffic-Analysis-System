@@ -5,6 +5,7 @@ import Sidebar from "../components/layout/Sidebar";
 import "../styles/dashboard.css";
 import "../styles/global.css";
 import "../styles/problem-statement.css";
+import "../styles/navbar.css";
 import LiveMonitoring from "./dashboard/LiveMonitoring";
 import ModelDetails from "./dashboard/ModelDetails";
 import PerformanceTesting from "./dashboard/PerformanceTesting";

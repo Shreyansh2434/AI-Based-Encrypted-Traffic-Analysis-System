@@ -11,6 +11,7 @@ import ProblemStatement from "./dashboard/ProblemStatement";
 
 export default function DashboardLayout() {
   const [mode, setMode] = useState("problem-statement");
+  const [sidebarVisible, setSidebarVisible] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -51,15 +52,21 @@ export default function DashboardLayout() {
     if (option) navigate(`/${option.path}`);
   };
 
+  const toggleSidebar = () => {
+    setSidebarVisible(!sidebarVisible);
+  };
+
   return (
-    <div className="dashboard-layout">
-      <Navbar />
+    <div className={`dashboard-layout ${!sidebarVisible ? "sidebar-hidden" : ""}`}>
+      <Navbar onSidebarToggle={toggleSidebar} sidebarVisible={sidebarVisible} />
       <div className="dashboard-container">
-        <Sidebar
-          navigationOptions={navigationOptions}
-          currentMode={mode}
-          onModeChange={handleModeChange}
-        />
+        {sidebarVisible && (
+          <Sidebar
+            navigationOptions={navigationOptions}
+            currentMode={mode}
+            onModeChange={handleModeChange}
+          />
+        )}
         <main className="dashboard-main">
           <Routes>
             <Route path="problem-statement" element={<ProblemStatement />} />

@@ -1248,17 +1248,19 @@ input[type="range"] {
 .live-monitor-page .charts-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  margin: 24px 0;
+  gap: 24px;
+  margin: 32px 0;
 }
 
 .live-monitor-page .chart-container {
-  max-height: 320px;
-  overflow: hidden;
-  padding: 16px;
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  border-radius: 8px;
-  background: rgba(30, 41, 59, 0.5);
+  min-height: 480px;
+  overflow: visible;
+  padding: 24px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.6));
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
 .live-monitor-page .chart-container h3 {
@@ -2213,5 +2215,162 @@ h4 {
 .live-monitor-page .status-alert.alert-success {
   background: rgba(34, 197, 94, 0.1);
   border-left-color: #22c55e;
+  color: #86efac;
+}
+
+/* Sidebar toggle - hidden by default */
+.sidebar-container {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.3s ease, 
+              width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashboard-layout.sidebar-hidden .sidebar-container {
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+  width: 0 !important;
+}
+
+.dashboard-layout.sidebar-hidden .dashboard-main {
+  flex: 1;
+  width: 100%;
+}
+
+/* Navbar toggle button for CIPHER text */
+.navbar-cipher-toggle {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.navbar-cipher-toggle:hover {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+}
+
+/* Hide Live Network Threat Map completely */
+.live-network-threat-map,
+.network-map,
+.network-map-container {
+  display: none !important;
+}
+
+/* Premium styling for threat list */
+.threat-list-container {
+  margin-top: 32px;
+}
+
+.threat-feed-list {
+  border-radius: 12px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.5));
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.threat-feed-row {
+  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.threat-feed-row:hover {
+  background: rgba(59, 130, 246, 0.05);
+  border-left: 3px solid currentColor;
+}
+
+.threat-feed-row:last-child {
+  border-bottom: none;
+}
+
+/* Premium badge styling */
+.threat-feed-badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.threat-feed-badge.threat-critical {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.threat-feed-badge.threat-high {
+  background: rgba(249, 115, 22, 0.2);
+  color: #fed7aa;
+  border: 1px solid rgba(249, 115, 22, 0.4);
+}
+
+.threat-feed-badge.threat-medium {
+  background: rgba(250, 204, 21, 0.2);
+  color: #fde047;
+  border: 1px solid rgba(250, 204, 21, 0.4);
+}
+
+.threat-feed-badge.threat-low {
+  background: rgba(34, 197, 94, 0.2);
+  color: #86efac;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+/* Metrics row premium styling */
+.live-monitor-page .metrics-block {
+  margin: 24px 0;
+  padding: 20px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.5));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Status alert premium styling */
+.live-monitor-page .status-alert {
+  padding: 18px;
+  margin: 20px 0;
+  border-radius: 12px;
+  border-left: 4px solid;
+  font-size: 13px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+.live-monitor-page .status-alert.alert-danger {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.05));
+  border-left-color: #ef4444;
+  color: #fca5a5;
+}
+
+.live-monitor-page .status-alert.alert-success {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(34, 197, 94, 0.05));
+  border-left-color: #22c55e;
+  color: #86efac;
+}
+
+/* Button styling premium */
+.btn {
+  transition: all 0.2s ease;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.btn.btn-danger {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05));
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+}
+
+.btn.btn-success {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05));
+  border: 1px solid rgba(34, 197, 94, 0.4);
   color: #86efac;
 }

@@ -56,11 +56,11 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
   const metricKeys = Object.keys(metricLabels);
   const maxValue = 100;
 
-  // Radar chart dimensions - petite sized
-  const svgSize = 300;
+  // Radar chart dimensions - very small/compact sized
+  const svgSize = 200;
   const centerX = svgSize / 2;
   const centerY = svgSize / 2;
-  const radius = 85;
+  const radius = 55;
   const angleSlice = (Math.PI * 2) / metricKeys.length;
 
   const getPoint = (index, value) => {
@@ -87,7 +87,7 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
 
   const getLabelPoint = (index) => {
     const angle = angleSlice * index - Math.PI / 2;
-    const distance = radius + 15;
+    const distance = radius + 10;
     const x = centerX + distance * Math.cos(angle);
     const y = centerY + distance * Math.sin(angle);
     return { x, y };
@@ -131,7 +131,7 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
 
           <svg
             width="100%"
-            height="300"
+            height="200"
             viewBox={`0 0 ${svgSize} ${svgSize}`}
             className="chart-svg professional"
             preserveAspectRatio="xMidYMid meet"
@@ -169,7 +169,7 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
                     x={labelPoint.x}
                     y={labelPoint.y}
                     textAnchor="middle"
-                    fontSize="9"
+                    fontSize="8"
                     fill="#94a3b8"
                     fontWeight="600"
                   >

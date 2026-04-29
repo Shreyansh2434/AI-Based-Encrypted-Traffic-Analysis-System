@@ -57,7 +57,7 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
   const maxValue = 100;
 
   // Radar chart dimensions - medium sized with good readability
-  const svgSize = 280;
+  const svgSize = 340;
   const centerX = svgSize / 2;
   const centerY = svgSize / 2;
   const radius = 90;
@@ -131,8 +131,8 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
 
           <div style={{ display: 'flex', justifyContent: 'center', margin: '30px 0' }}>
             <svg
-              width="320"
-              height="320"
+              width="380"
+              height="380"
               viewBox={`0 0 ${svgSize} ${svgSize}`}
               className="chart-svg professional"
               preserveAspectRatio="xMidYMid meet"

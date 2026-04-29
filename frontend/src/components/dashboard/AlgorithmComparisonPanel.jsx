@@ -129,14 +129,15 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
             </div>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', margin: '30px 0' }}>
-            <svg
-              width="380"
-              height="380"
-              viewBox={`0 0 ${svgSize} ${svgSize}`}
-              className="chart-svg professional"
-              preserveAspectRatio="xMidYMid meet"
-            >
+          <div style={{ display: 'flex', justifyContent: 'center', margin: '30px 0', width: '100%' }}>
+            <div style={{ width: '380px' }}>
+              <svg
+                width="100%"
+                height="380"
+                viewBox={`0 0 ${svgSize} ${svgSize}`}
+                className="chart-svg professional"
+                preserveAspectRatio="xMidYMid meet"
+              >
             {/* Grid circles */}
             {[25, 50, 75, 100].map((val) => (
               <circle
@@ -208,6 +209,7 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
               </g>
             ))}
           </svg>
+            </div>
           </div>
 
           {/* Legend */}

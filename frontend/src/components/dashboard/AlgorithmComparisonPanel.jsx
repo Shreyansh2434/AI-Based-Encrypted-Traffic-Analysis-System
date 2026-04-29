@@ -56,11 +56,11 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
   const metricKeys = Object.keys(metricLabels);
   const maxValue = 100;
 
-  // Radar chart dimensions - 75% smaller (ultra-tiny)
-  const svgSize = 75;
+  // Radar chart dimensions - medium sized with good readability
+  const svgSize = 280;
   const centerX = svgSize / 2;
   const centerY = svgSize / 2;
-  const radius = 20;
+  const radius = 90;
   const angleSlice = (Math.PI * 2) / metricKeys.length;
 
   const getPoint = (index, value) => {
@@ -87,7 +87,7 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
 
   const getLabelPoint = (index) => {
     const angle = angleSlice * index - Math.PI / 2;
-    const distance = radius + 5;
+    const distance = radius + 35;
     const x = centerX + distance * Math.cos(angle);
     const y = centerY + distance * Math.sin(angle);
     return { x, y };
@@ -129,10 +129,10 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
             </div>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', margin: '30px 0' }}>
             <svg
-              width="100"
-              height="100"
+              width="320"
+              height="320"
               viewBox={`0 0 ${svgSize} ${svgSize}`}
               className="chart-svg professional"
               preserveAspectRatio="xMidYMid meet"
@@ -170,7 +170,7 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
                     x={labelPoint.x}
                     y={labelPoint.y}
                     textAnchor="middle"
-                    fontSize="5"
+                    fontSize="11"
                     fill="#94a3b8"
                     fontWeight="600"
                   >
@@ -188,7 +188,7 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
                   fill={algo.color}
                   fillOpacity="0.15"
                   stroke={algo.color}
-                  strokeWidth="2"
+                  strokeWidth="2.5"
                   opacity="0.8"
                 />
                 {/* Data points */}
@@ -199,7 +199,7 @@ export default function AlgorithmComparisonPanel({ isLoading = false }) {
                       key={`point-${algoIdx}-${idx}`}
                       cx={point.x}
                       cy={point.y}
-                      r="3"
+                      r="4"
                       fill={algo.color}
                       opacity="0.9"
                     />

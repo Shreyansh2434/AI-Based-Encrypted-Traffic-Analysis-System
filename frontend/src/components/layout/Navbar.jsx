@@ -29,7 +29,6 @@ export default function Navbar({ onSidebarToggle, sidebarVisible }) {
 
           {/* Logo and title */}
           <div className="navbar-logo-section">
-            <div className="navbar-logo-icon">🔐</div>
             <div className="navbar-text">
               <h1 className="navbar-title">CIPHER</h1>
               <p className="navbar-subtitle">Traffic Analysis</p>
@@ -44,26 +43,6 @@ export default function Navbar({ onSidebarToggle, sidebarVisible }) {
           </span>
           <span className="tagline-separator">•</span>
           <span className="tagline-text">Real-Time Analysis</span>
-        </div>
-
-        {/* Premium action buttons */}
-        <div className="navbar-actions">
-          {/* Status indicator */}
-          <div className="navbar-status">
-            <span className="status-dot"></span>
-            <span className="status-text">Active</span>
-          </div>
-
-          {/* Premium CTA button */}
-          <button className="navbar-btn navbar-btn-primary">
-            <span className="btn-text">Dashboard</span>
-            <span className="btn-icon">→</span>
-          </button>
-
-          {/* Secondary action button */}
-          <button className="navbar-btn navbar-btn-secondary">
-            <span className="btn-icon">⚙️</span>
-          </button>
         </div>
       </div>
 
